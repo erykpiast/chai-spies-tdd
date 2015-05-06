@@ -1,0 +1,41 @@
+{
+  "name": "chai-spies-tdd",
+  "version": "0.0.0",
+  "author": "Eryk Napierala",
+  "description": "TDD-style interface for chai-spies.",
+  "license": "MIT",
+  "homepage": "https://github.com/erykpiast/chai-spies-tdd",
+  "bugs": "https://github.com/erykpiast/chai-spies-tdd/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erykpiast/chai-spies-tdd"
+  },
+  "keywords": [
+    "cyclejs",
+    "streams",
+    "group"
+  ],
+  "main": "dist/chai-spies-tdd.js",
+  "peerDependencies": {
+    "chai-spies": ">=0.6"
+  },
+  "devDependencies": {
+    "babel": "~5.2",
+    "jscs": "~1.12",
+    "jshint": "~2.7"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "jshint": "jshint src/",
+    "jscs": "jscs src/",
+    "precompile": "rm -rf dist/ && mkdir -p dist",
+    "compile": "babel -d dist/ src/",
+    "prepublish": "npm run compile",
+    "release": "npm run release-patch",
+    "release-patch": "git checkout master && npm run compile; git commit -a -m 'Build dist/'; npm version patch && git push origin master --tags && npm publish",
+    "release-minor": "git checkout master && npm run compile; git commit -a -m 'Build dist/'; npm version minor && git push origin master --tags && npm publish",
+    "release-major": "git checkout master && npm run compile; git commit -a -m 'Build dist/'; npm version major && git push origin master --tags && npm publish"
+  }
+}
