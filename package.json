@@ -36,7 +36,7 @@
     "precompile": "rm -rf dist/ && mkdir -p dist",
     "compile": "babel -d dist/ src --presets es2015",
     "prepublish": "npm run compile",
-    "prerelease": "git checkout master && npm run compile; git commit -a -m 'Build dist/';",
+    "prerelease": "git checkout master; git commit -a -m 'Build dist/';",
     "release": "npm run release-patch",
     "release-patch": "npm run prerelease; npm version patch && git push origin master --tags && npm publish",
     "release-minor": "npm run prerelease; npm version minor && git push origin master --tags && npm publish",
