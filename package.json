@@ -11,9 +11,10 @@
     "url": "https://github.com/erykpiast/chai-spies-tdd"
   },
   "keywords": [
-    "cyclejs",
-    "streams",
-    "group"
+    "chai",
+    "spies",
+    "tdd",
+    "assert"
   ],
   "main": "dist/chai-spies-tdd.js",
   "peerDependencies": {
@@ -33,9 +34,10 @@
     "precompile": "rm -rf dist/ && mkdir -p dist",
     "compile": "babel -d dist/ src/",
     "prepublish": "npm run compile",
+    "prerelease": "git checkout master && npm run compile; git commit -a -m 'Build dist/';",
     "release": "npm run release-patch",
-    "release-patch": "git checkout master && npm run compile; git commit -a -m 'Build dist/'; npm version patch && git push origin master --tags && npm publish",
-    "release-minor": "git checkout master && npm run compile; git commit -a -m 'Build dist/'; npm version minor && git push origin master --tags && npm publish",
-    "release-major": "git checkout master && npm run compile; git commit -a -m 'Build dist/'; npm version major && git push origin master --tags && npm publish"
+    "release-patch": "npm run prerelease; npm version patch && git push origin master --tags && npm publish",
+    "release-minor": "npm run prerelease; npm version minor && git push origin master --tags && npm publish",
+    "release-major": "npm run prerelease; npm version major && git push origin master --tags && npm publish"
   }
 }
