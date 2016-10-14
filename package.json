@@ -1,6 +1,6 @@
 {
   "name": "chai-spies-tdd",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Eryk Napierala",
   "description": "TDD-style interface for chai-spies.",
   "license": "MIT",
